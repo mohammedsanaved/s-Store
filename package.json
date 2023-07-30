@@ -4,6 +4,9 @@
   "type": "module",
   "description": "Ecommerce application built with the MERN stack",
   "main": "server.js",
+  "engines": {
+    "node": ">= 14.20.1"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
