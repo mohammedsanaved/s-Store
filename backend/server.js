@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'production') {
   );
 } else {
   const __dirname = path.resolve();
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+  app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
   app.get('/', (req, res) => {
     res.send('API is running....');
   });
@@ -47,6 +47,14 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 app.use(notFound);
 app.use(errorHandler);
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+    optionSuccessStatus: 200,
+  })
+);
 
 app.listen(port, () =>
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`)
