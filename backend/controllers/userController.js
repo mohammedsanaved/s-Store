@@ -12,7 +12,7 @@ const authUser = asyncHandler(async (req, res) => {
 
   if (user && (await user.matchPassword(password))) {
     generateToken(res, user._id);
-    console.log(user.matchPassword(password));
+    console.log(res);
 
     res.json({
       _id: user._id,
@@ -62,13 +62,14 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 // @desc    Logout user / clear cookie
-// @route   POST /api/users/logout
+// @route   GET /api/users/logout
 // @access  Public
 const logoutUser = (req, res) => {
   res.cookie('jwt', '', {
     httpOnly: true,
     expires: new Date(0),
   });
+  // res.clearCookie('jwt');
   res.status(200).json({ message: 'Logged out successfully' });
 };
 

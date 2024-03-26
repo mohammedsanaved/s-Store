@@ -2,7 +2,7 @@
 //   process.env.NODE_ENV === 'develeopment' ? 'http://localhost:5000' : '';
 // "proxy": "http://localhost:5000",
 
-export const BASE_URL = 'http://localhost:5000'; // If using proxy
+export const BASE_URL = 'http://localhost:8000'; // If using proxy
 // export const BASE_URL = 'https://eshop-backend-olbw.onrender.com'; // If using proxy
 
 export const PRODUCTS_URL = '/api/products';
